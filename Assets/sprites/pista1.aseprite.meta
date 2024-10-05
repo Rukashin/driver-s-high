@@ -610,7 +610,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: pista1_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -619,7 +619,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 40f8ba29f48de40a29fd4e8b59c81678
-    - name: Frame_1
+    - name: pista1_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -628,7 +628,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: e576f7998326949a9bfef7aa4115551f
-    - name: Frame_2
+    - name: pista1_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -637,7 +637,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 9b6907cda8cbb4173bdb60dd3b302d77
-    - name: Frame_3
+    - name: pista1_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -646,7 +646,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 8b65047292c2749519f08375dc58f9b7
-    - name: Frame_4
+    - name: pista1_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -655,7 +655,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: b34f6c76085dd4c6bb8eee4ab04a2984
-    - name: Frame_5
+    - name: pista1_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -664,7 +664,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 5707c3f050ec74a8ebdeb6c12e36fe82
-    - name: Frame_6
+    - name: pista1_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -673,7 +673,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 10b7c9e2498d44690aa01a0103119471
-    - name: Frame_7
+    - name: pista1_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
@@ -682,7 +682,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 3394badaaa78f4497bb468b5be4a9067
-    - name: Frame_8
+    - name: pista1_Frame_8
       frameIndex: 8
       additiveSortOrder: 0
       cellRect:
@@ -691,7 +691,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: da96fe95890be45bfaa7847d94c0a1b2
-    - name: Frame_9
+    - name: pista1_Frame_9
       frameIndex: 9
       additiveSortOrder: 0
       cellRect:
@@ -700,7 +700,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: accdc852b4be04eb88ce41be434a671b
-    - name: Frame_10
+    - name: pista1_Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
@@ -709,7 +709,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 8e476b9be14a0450c9c03f8390c6fd9f
-    - name: Frame_11
+    - name: pista1_Frame_11
       frameIndex: 11
       additiveSortOrder: 0
       cellRect:
@@ -718,7 +718,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 173f30ae2e79e440cb7699593a2f943b
-    - name: Frame_12
+    - name: pista1_Frame_12
       frameIndex: 12
       additiveSortOrder: 0
       cellRect:
@@ -727,7 +727,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: d9c485ee9b3114eb5a1e4337b70f8c74
-    - name: Frame_13
+    - name: pista1_Frame_13
       frameIndex: 13
       additiveSortOrder: 0
       cellRect:
@@ -736,7 +736,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 9b31a4536f16f4a97b4f8066473bdfc0
-    - name: Frame_14
+    - name: pista1_Frame_14
       frameIndex: 14
       additiveSortOrder: 0
       cellRect:
@@ -745,7 +745,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 9ec7ae60be504435ab8a24b3ddf01216
-    - name: Frame_15
+    - name: pista1_Frame_15
       frameIndex: 15
       additiveSortOrder: 0
       cellRect:
@@ -754,7 +754,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: a444c2e7a5a5d4a7fb4b686dda2955b5
-    - name: Frame_16
+    - name: pista1_Frame_16
       frameIndex: 16
       additiveSortOrder: 0
       cellRect:
@@ -763,7 +763,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: cbfdd5dd9764d433490887391fc4f94e
-    - name: Frame_17
+    - name: pista1_Frame_17
       frameIndex: 17
       additiveSortOrder: 0
       cellRect:
@@ -772,7 +772,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 457337882323d4cc78e135a98c798f3e
-    - name: Frame_18
+    - name: pista1_Frame_18
       frameIndex: 18
       additiveSortOrder: 0
       cellRect:
@@ -781,7 +781,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 318facdec18184d659596fc12a0a2eaf
-    - name: Frame_19
+    - name: pista1_Frame_19
       frameIndex: 19
       additiveSortOrder: 0
       cellRect:
@@ -790,7 +790,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 3823199240ed34f3a9b1e1dde3269f5a
-    - name: Frame_20
+    - name: pista1_Frame_20
       frameIndex: 20
       additiveSortOrder: 0
       cellRect:
@@ -799,7 +799,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: 4b08ee4b1495942dbafb6a753f8820db
-    - name: Frame_21
+    - name: pista1_Frame_21
       frameIndex: 21
       additiveSortOrder: 0
       cellRect:
@@ -808,7 +808,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: a2f268119d07a4fff907d8cb93e1e12b
-    - name: Frame_22
+    - name: pista1_Frame_22
       frameIndex: 22
       additiveSortOrder: 0
       cellRect:
@@ -817,7 +817,7 @@ ScriptedImporter:
         width: 320
         height: 240
       spriteId: e817d869417db4b4286a745aa9f1c805
-    - name: Frame_23
+    - name: pista1_Frame_23
       frameIndex: 23
       additiveSortOrder: 0
       cellRect:

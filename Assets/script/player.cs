@@ -59,9 +59,31 @@ public class player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
         {
-            Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-            canFire = Time.time + fireRate;
+            //Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+            //canFire = Time.time + fireRate;
+
+            switch(BulletPref.name)
+            {
+                case "bullet1":
+                    Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+                    canFire = Time.time + fireRate;
+                    break;
+                case "energiabola":
+                    var bullet1 = Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+                    bullet1.GetComponent<energiabola>().direction = new Vector2(0, 1);
+                    var bullet2 = Instantiate(BulletPref, transform.position + new Vector3(0.5f, 0.8f, 0), Quaternion.identity);
+                    bullet2.GetComponent<energiabola>().direction = new Vector2(0.5f, 1);
+                    var bullet3 = Instantiate(BulletPref, transform.position + new Vector3(-0.5f, 0.8f, 0), Quaternion.identity);
+                    bullet3.GetComponent<energiabola>().direction = new Vector2(-0.5f, 1);
+                    canFire = Time.time + fireRate;
+                    break;
+                case "cranium":
+                    Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
+                    canFire = Time.time + fireRate;
+                    break;
+            }
         }
+
     }
 
     public void ChangeWeapon()
@@ -70,14 +92,17 @@ public class player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             BulletPref = bullets[0].gameObject;
+            //actualWeapon = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             BulletPref = bullets[1].gameObject;
+            //actualWeapon = 1;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             BulletPref = bullets[2].gameObject;
+            //actualWeapon = 2;
         }
     }
 
