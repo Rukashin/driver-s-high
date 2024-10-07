@@ -6,6 +6,7 @@ public class enemy : MonoBehaviour
 {
     public float speed = 1f;
     public int health = 3;
+    public GameObject plat;
     private GameObject rewardPrefab;
     void Start()
     {
@@ -15,6 +16,7 @@ public class enemy : MonoBehaviour
     void Update()
     {
         Movement();
+        
     }
 
     public virtual void Movement()
@@ -24,12 +26,14 @@ public class enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector3 doko = transform.position;
         if (collision != null)
         {
             if (collision.gameObject.CompareTag("dmg1"))
             {
                 health--;
                 Destroy(collision.gameObject);
+                Instantiate(plat, doko, Quaternion.identity);
 
                 if (health < 0)
                 {

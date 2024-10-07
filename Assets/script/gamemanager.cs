@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UIElements;
 
 public class gamemanager : MonoBehaviour
@@ -8,11 +9,16 @@ public class gamemanager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
+    public float time = 60.0f;
     public float spawnTime = 1.0f;
     public float enemyTime = 1.0f;
     public float spawnRadius = 1.0f;
     public player player;
-    public LayerMask collisionMask;
+    public TextMeshProUGUI platanosText;
+    public TextMeshProUGUI theCraniumText;
+    public TextMeshProUGUI Tiempo;
+
+    //public LayerMask collisionMask;
 
     void Start()
     {
@@ -23,9 +29,19 @@ public class gamemanager : MonoBehaviour
     void Update()
     {
         CreateEnemy();
-        //UpdateCanvas();
+        UpdateCanvas();
         //ChangeBulletImage(player.actualWeapon);
+        time -= Time.deltaTime;
     }
+
+    void UpdateCanvas()
+    {
+        Debug.Log(player.platns);
+        platanosText.text = "X " + player.platns;
+        theCraniumText.text = "X " + player.theCranium;
+        Tiempo.text = "T " + time.ToString("F1");
+    }
+
 
     private void CreateEnemy()
         {
@@ -65,10 +81,10 @@ public class gamemanager : MonoBehaviour
         enemyTime += Time.deltaTime;
         int enemigos = 1 + Random.Range(0, 6);
 
-        // Genera una posición aleatoria en el eje X
+        // Genera una posici?n aleatoria en el eje X
         Vector3 spawnPosition = new Vector3(Random.Range(-7.0f, 7.0f), -5.0f, 0);
 
-        // Verifica si el espacio está libre antes de instanciar el enemigo
+        // Verifica si el espacio est? libre antes de instanciar el enemigo
         if (enemyTime > spawnTime && IsSpaceFree(spawnPosition, spawnRadius))
         {
             if (enemigos < 5)
@@ -106,7 +122,7 @@ public class gamemanager : MonoBehaviour
         return colliders.Length == 0;  // Retorna true si no hay colisiones
     }
 
-    // Para visualizar el área de verificación en la escena
+    // Para visualizar el ?rea de verificaci?n en la escena
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -126,7 +142,7 @@ public class gamemanager : MonoBehaviour
             if (colliders.Length == 0)
             {
                 Instantiate(enemyPrefab, spot, Quaternion.identity);
-                Debug.Log("Enemigo apareció en: " + spot);
+                Debug.Log("Enemigo apareci? en: " + spot);
                 return;
             }
 
@@ -135,4 +151,6 @@ public class gamemanager : MonoBehaviour
         
         Debug.Log("Failed to find a valid spawn after" + maxattempts + "attempts");
     }
+
+
 }

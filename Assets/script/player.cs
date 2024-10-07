@@ -10,6 +10,9 @@ public class player : MonoBehaviour
     public float canFire = 0.0f;
     public GameObject BulletPref;
     public List<bullet> bullets;
+    public int platns = 10;
+    public int theCranium = 3;
+    public float tiempo;
 
 
 
@@ -47,9 +50,10 @@ public class player : MonoBehaviour
         float xMax = cam.orthographicSize * cam.aspect;
         if (transform.position.x > xMax)
         {
-            transform.position = new Vector3(-xMax, transform.position.y, 0);
+            transform.position = new Vector3(-xMax+3, transform.position.y, 0);
+
         }
-        else if (transform.position.x < -xMax)
+        else if (transform.position.x < -xMax+3)
         {
             transform.position = new Vector3(xMax, transform.position.y, 0);
         }
@@ -64,9 +68,14 @@ public class player : MonoBehaviour
 
             switch(BulletPref.name)
             {
+                
                 case "bullet1":
-                    Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-                    canFire = Time.time + fireRate;
+                    if (platns > 1)
+                    {
+                        Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+                        canFire = Time.time + fireRate;
+                        platns -= 1;
+                    }
                     break;
                 case "energiabola":
                     var bullet1 = Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
@@ -78,8 +87,13 @@ public class player : MonoBehaviour
                     canFire = Time.time + fireRate;
                     break;
                 case "cranium":
-                    Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
-                    canFire = Time.time + fireRate;
+                    if (theCranium > 0)
+                    {
+                        Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
+                        canFire = Time.time + fireRate;
+                        theCranium -= 1;
+                    }
+
                     break;
             }
         }

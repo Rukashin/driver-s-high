@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   health: 3
+  plat: {fileID: 1758172196267931528, guid: 524fbe2bc236f4b6790898b15bef6d07, type: 3}
 --- !u!61 &8420972294033933613
 BoxCollider2D:
   m_ObjectHideFlags: 0
