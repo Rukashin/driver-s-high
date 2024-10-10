@@ -33,12 +33,13 @@ public class enemy : MonoBehaviour
             {
                 health--;
                 Destroy(collision.gameObject);
-                Instantiate(plat, doko, Quaternion.identity);
+
 
                 if (health < 0)
                 {
                     Debug.Log("bala 1 choca meteorito");
                     Destroy(this.gameObject);
+                    Instantiate(plat, doko, Quaternion.identity);
                 }
 
             }
@@ -52,6 +53,7 @@ public class enemy : MonoBehaviour
                 {
                     Debug.Log("bala 2 choca meteorito");
                     Destroy(this.gameObject);
+                    Instantiate(plat, doko, Quaternion.identity);
                 }
 
             }
