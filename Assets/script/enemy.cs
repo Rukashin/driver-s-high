@@ -8,6 +8,8 @@ public class enemy : MonoBehaviour
     public int health = 3;
     public GameObject plat;
     public GameObject cranium;
+    public GameObject turbo;
+    public GameObject bomb;
     private GameObject rewardPrefab;
     public gamemanager gamemanager;
 
@@ -44,7 +46,7 @@ public class enemy : MonoBehaviour
                     Debug.Log("bala 1 choca meteorito");
                     Destroy(this.gameObject);
                     Instantiate(plat, doko, Quaternion.identity);
-                    gamemanager.time = gamemanager.time + 50.0f;
+                    gamemanager.time = gamemanager.time + 10.0f;
                 }
 
             }
@@ -59,7 +61,22 @@ public class enemy : MonoBehaviour
                     Debug.Log("bala 2 choca meteorito");
                     Destroy(this.gameObject);
                     Instantiate(plat, doko, Quaternion.identity);
-                    gamemanager.time = gamemanager.time + 50.0f;
+                    gamemanager.time = gamemanager.time + 10.0f;
+                }
+
+            }
+
+            else if (collision.gameObject.CompareTag("dmg2"))
+            {
+                health -= 5;
+                Destroy(collision.gameObject);
+
+                if (health < 0)
+                {
+                    //Debug.Log("bala 2 choca meteorito");
+                    Destroy(this.gameObject);
+                    Instantiate(plat, doko, Quaternion.identity);
+                    gamemanager.time = gamemanager.time + 15.0f;
                 }
 
             }

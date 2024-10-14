@@ -16,6 +16,8 @@ public class player : MonoBehaviour
     public List<bullet> bullets;
     public int platns = 10;
     public int theCranium = 3;
+    public int lulos = 1;
+    public int spatk = 1;
     public float turbo;
     public float tiempo;
     public float score = 0;
@@ -122,14 +124,18 @@ public class player : MonoBehaviour
                     }
                     break;
                 case "energiabola":
-                    var bullet1 = Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-                    bullet1.GetComponent<energiabola>().direction = new Vector2(0, 1);
-                    var bullet2 = Instantiate(BulletPref, transform.position + new Vector3(0.5f, 0.8f, 0), Quaternion.identity);
-                    bullet2.GetComponent<energiabola>().direction = new Vector2(0.5f, 1);
-                    var bullet3 = Instantiate(BulletPref, transform.position + new Vector3(-0.5f, 0.8f, 0), Quaternion.identity);
-                    bullet3.GetComponent<energiabola>().direction = new Vector2(-0.5f, 1);
-                    canFire = Time.time + fireRate;
-                    actualAudio.Play();
+                    if (lulos > 0)
+                    {
+                        var bullet1 = Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+                        bullet1.GetComponent<energiabola>().direction = new Vector2(0, 1);
+                        var bullet2 = Instantiate(BulletPref, transform.position + new Vector3(0.5f, 0.8f, 0), Quaternion.identity);
+                        bullet2.GetComponent<energiabola>().direction = new Vector2(0.5f, 1);
+                        var bullet3 = Instantiate(BulletPref, transform.position + new Vector3(-0.5f, 0.8f, 0), Quaternion.identity);
+                        bullet3.GetComponent<energiabola>().direction = new Vector2(-0.5f, 1);
+                        canFire = Time.time + fireRate;
+                        lulos--;
+                        actualAudio.Play();
+                    }
                     break;
                 case "cranium":
                     if (theCranium > 0)
@@ -137,6 +143,16 @@ public class player : MonoBehaviour
                         Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
                         canFire = Time.time + fireRate;
                         theCranium -= 1;
+                        actualAudio.Play();
+                    }
+
+                    break;
+                case "espatk":
+                    if (spatk > 0)
+                    {
+                        Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
+                        canFire = Time.time + fireRate;
+                        spatk -= 1;
                         actualAudio.Play();
                     }
 
@@ -164,8 +180,21 @@ public class player : MonoBehaviour
             BulletPref = bullets[2].gameObject;
             actualWeapon = 2;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            BulletPref = bullets[3].gameObject;
+            actualWeapon = 3;
+        }
     }
 
+
+    public void MasLulos()
+    {
+        if (platns > 20)
+        {
+            lulos++;
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -195,6 +224,13 @@ public class player : MonoBehaviour
             else if (collision.gameObject.CompareTag("cranium"))
             {
                 theCranium ++;
+                Destroy(collision.gameObject);
+
+            }
+
+            else if (collision.gameObject.CompareTag("camaron"))
+            {
+                turbo = turbo + 10f;
                 Destroy(collision.gameObject);
 
             }

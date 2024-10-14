@@ -13,6 +13,7 @@ public class gamemanager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
+    public GameObject turbo;
     public float time = 60.0f;
     public float spawnTime = 1.0f;
     public float enemyTime = 1.0f;
@@ -94,14 +95,22 @@ public class gamemanager : MonoBehaviour
     {
         //Debug.Log("ChangeBulletImage: " + index);
         platimg.sprite = bulletsprites[index];
-        if (index == 0) // Para la primera arma (platano)
+        if (index == 0) 
             {
-                platanosText.text = "X " + player.platns; // Actualiza el texto con la cantidad de platanos
+                platanosText.text = "X " + player.platns; 
             }
-        else if (index == 1) // Para la segunda arma (theCranium)
+        else if (index == 1)
             {
-                platanosText.text = "X " + player.theCranium; // Actualiza el texto con la cantidad de theCranium
+                platanosText.text = "X " + player.theCranium; 
             }
+        else if (index == 2)
+        {
+            platanosText.text = "X " + player.lulos; 
+        }
+        else if (index == 3) 
+        {
+            platanosText.text = "X " + player.spatk; 
+        }
     }
 
 
@@ -115,25 +124,27 @@ public class gamemanager : MonoBehaviour
 
         if ((dado < 2) && (enemyTime > spawnTime))
         {
-            //GameObject enemy = Instantiate(enemyPrefab, spawnposition, Quaternion.identity);
-            //enemy.GetComponent<enemy>().gamemanager = this;
-            Instantiate(enemyPrefab, spawnposition, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, spawnposition, Quaternion.identity);
+            enemy.GetComponent<enemy>().gamemanager = this;
+            //Instantiate(enemyPrefab, spawnposition, Quaternion.identity);
+            Instantiate(turbo, spawnposition, Quaternion.identity);
+
             enemyTime = 0.0f;
         }
         else if ((dado > 2) && (dado < 6) && (enemyTime > spawnTime))
         {
             Debug.Log(dado);
-            //GameObject enemy = Instantiate(enemyPrefab2, spawnposition, Quaternion.identity);
-            //enemy.GetComponent<enemy>().gamemanager = this;
-            Instantiate(enemyPrefab2, spawnposition, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab2, spawnposition, Quaternion.identity);
+            enemy.GetComponent<enemy>().gamemanager = this;
+            //Instantiate(enemyPrefab2, spawnposition, Quaternion.identity);
             enemyTime = 0.0f;
         }
         else if ((dado > 4) && (enemyTime > spawnTime))
         {
             Debug.Log(dado);
-            //GameObject enemy = Instantiate(enemyPrefab3, spawnposition, Quaternion.identity);
-            //enemy.GetComponent<enemy>().gamemanager = this;
-            Instantiate(enemyPrefab3, spawnposition, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab3, spawnposition, Quaternion.identity);
+            enemy.GetComponent<enemy>().gamemanager = this;
+            //Instantiate(enemyPrefab3, spawnposition, Quaternion.identity);
             enemyTime = 0.0f;
         }
     }

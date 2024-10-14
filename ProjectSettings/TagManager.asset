@@ -13,6 +13,7 @@ TagManager:
   - cranium
   - platano
   - desacelerador
+  - camaron
   layers:
   - Default
   - TransparentFX
