@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5923156514623446928}
   m_Layer: 0
   m_Name: cranium
-  m_TagString: dmg3
+  m_TagString: dmg2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,4 +144,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  direction: {x: 0, y: 1}

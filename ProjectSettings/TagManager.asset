@@ -8,6 +8,11 @@ TagManager:
   - dmg1
   - dmg2
   - dmg3
+  - basura
+  - plat
+  - cranium
+  - platano
+  - desacelerador
   layers:
   - Default
   - TransparentFX

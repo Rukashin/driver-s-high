@@ -5,6 +5,10 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float verticalspd = 0f;
+    public float upspd = 2.0f;
+    public float dwnspd = 2.5f;
+    public float revrsspd = 3.0f;
     public float fireRate = 1.5f;
     public int lives = 2;
     public float canFire = 0.0f;
@@ -12,7 +16,12 @@ public class player : MonoBehaviour
     public List<bullet> bullets;
     public int platns = 10;
     public int theCranium = 3;
+    public float turbo;
     public float tiempo;
+    public float score = 0;
+    public audiomanager audioManager;
+    public AudioSource actualAudio;
+    public int actualWeapon = 0;
 
 
 
@@ -25,16 +34,19 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        Movement2();
         CheckBoundaries();
         ChangeWeapon();
         //UseShields();
         Fire();
+        score += Time.deltaTime * 15;
+
     }
 
 
     //-Metodos-//
 
+    /*
     void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -42,6 +54,36 @@ public class player : MonoBehaviour
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
         transform.Translate(Vector3.up * speed * verticalInput * Time.deltaTime);
 
+    }
+    */
+
+    void Movement2()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Movimiento vertical constante
+        transform.Translate(Vector3.up * verticalspd * Time.deltaTime);
+
+        if (verticalInput > 0) // Movimiento hacia arriba
+        {
+            transform.Translate(Vector3.up * upspd * verticalInput * Time.deltaTime);
+        }
+        else if (verticalInput < 0) // Movimiento hacia abajo
+        {
+            transform.Translate(Vector3.down * dwnspd * -verticalInput * Time.deltaTime);
+        }
+        // Verificar si el botón de acelerar es presionado
+        if ((Input.GetKey(KeyCode.O)) && (turbo > 0)) // Cambia 'Space' si deseas otro botón
+        {
+            turbo -= Time.deltaTime * 3;
+            transform.Translate(Vector3.down * revrsspd * Time.deltaTime);
+            if (turbo == 0)
+            {
+                return;
+            }
+        }
+        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
     }
 
     void CheckBoundaries()
@@ -75,6 +117,8 @@ public class player : MonoBehaviour
                         Instantiate(BulletPref, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
                         canFire = Time.time + fireRate;
                         platns -= 1;
+                        actualAudio.Play();
+
                     }
                     break;
                 case "energiabola":
@@ -85,6 +129,7 @@ public class player : MonoBehaviour
                     var bullet3 = Instantiate(BulletPref, transform.position + new Vector3(-0.5f, 0.8f, 0), Quaternion.identity);
                     bullet3.GetComponent<energiabola>().direction = new Vector2(-0.5f, 1);
                     canFire = Time.time + fireRate;
+                    actualAudio.Play();
                     break;
                 case "cranium":
                     if (theCranium > 0)
@@ -92,6 +137,7 @@ public class player : MonoBehaviour
                         Instantiate(BulletPref, transform.position + new Vector3(0, -0.8f, 0), Quaternion.identity);
                         canFire = Time.time + fireRate;
                         theCranium -= 1;
+                        actualAudio.Play();
                     }
 
                     break;
@@ -106,17 +152,17 @@ public class player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             BulletPref = bullets[0].gameObject;
-            //actualWeapon = 0;
+            actualWeapon = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             BulletPref = bullets[1].gameObject;
-            //actualWeapon = 1;
+            actualWeapon = 1;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             BulletPref = bullets[2].gameObject;
-            //actualWeapon = 2;
+            actualWeapon = 2;
         }
     }
 
@@ -141,7 +187,31 @@ public class player : MonoBehaviour
                 }
             }
 
+            else if (collision.gameObject.CompareTag("platano"))
+            {
+                platns = platns + 5;
+                Destroy(collision.gameObject);
+            }
+            else if (collision.gameObject.CompareTag("cranium"))
+            {
+                theCranium ++;
+                Destroy(collision.gameObject);
 
+            }
+            else if (collision.gameObject.CompareTag("basura"))
+            {
+                Destroy(this.gameObject);
+            }
+
+
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D cosita)
+    {
+        if (cosita.gameObject.CompareTag("desacelerador"))
+        {
+            transform.Translate(Vector3.up * upspd * 25 * Time.deltaTime);
         }
     }
 }

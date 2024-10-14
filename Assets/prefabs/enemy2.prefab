@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6572180343192829196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 2.41, z: 0}
+  m_LocalPosition: {x: 0, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 3
-  plat: {fileID: 3721245161938148942, guid: 6aa6e035541e546f3b1c00b552c4b4af, type: 3}
+  health: 4
+  plat: {fileID: 1758172196267931528, guid: 524fbe2bc236f4b6790898b15bef6d07, type: 3}
+  cranium: {fileID: 3721245161938148942, guid: 6aa6e035541e546f3b1c00b552c4b4af, type: 3}
 --- !u!50 &7959775414925140673
 Rigidbody2D:
   serializedVersion: 4

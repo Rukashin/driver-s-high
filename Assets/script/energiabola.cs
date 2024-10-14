@@ -34,6 +34,7 @@ public class energiabola : bullet
                 //gamemanager.AddScore(10);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
+
             }
     }
 }
